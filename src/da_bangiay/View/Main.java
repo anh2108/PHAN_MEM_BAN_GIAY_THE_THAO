@@ -20,10 +20,10 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        setLocationRelativeTo(null);
         Login login = new Login();
         Register register = new Register();
-        slide.setAnimate(5);
+        slide.setAnimate(20);
         slide.init(login, register);
         login.addEventRegister(new ActionListener() {
             @Override
