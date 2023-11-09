@@ -27,14 +27,9 @@
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUser" max="32767" attributes="0"/>
                   <Component id="jLabel2" alignment="0" pref="257" max="32767" attributes="0"/>
-                  <Component id="txtPass" max="32767" attributes="0"/>
-                  <Component id="myButton1" alignment="0" max="32767" attributes="0"/>
                   <Component id="cmdBackLogin" max="32767" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtPass1" max="32767" attributes="0"/>
-                  <Component id="txtUser1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
@@ -47,23 +42,13 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="24" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="txtUser" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="24" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="txtPass" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" pref="24" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="txtPass1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" pref="24" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="txtUser1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="myButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace pref="116" max="32767" attributes="0"/>
               <Component id="cmdBackLogin" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
@@ -71,8 +56,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="swing.MyTextField" name="txtUser">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="User Name"/>
@@ -90,22 +73,9 @@
         <Property name="text" type="java.lang.String" value="Register"/>
       </Properties>
     </Component>
-    <Component class="swing.MyPassword" name="txtPass">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Password"/>
-      </Properties>
-    </Component>
-    <Component class="swing.MyButton" name="myButton1">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="fb" green="e5" red="7d" type="rgb"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="28" green="28" red="28" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cmdBackLogin">
@@ -127,10 +97,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirm Password"/>
       </Properties>
-    </Component>
-    <Component class="swing.MyPassword" name="txtPass1">
-    </Component>
-    <Component class="swing.MyTextField" name="txtUser1">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
