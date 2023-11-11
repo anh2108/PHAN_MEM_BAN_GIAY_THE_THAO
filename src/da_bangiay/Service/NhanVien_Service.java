@@ -71,4 +71,40 @@ public class NhanVien_Service {
             return 0;
         }
     }
+    
+    public int update (String id_ChucVu, NhanVien nv){
+        sql =  "UPDATE tbl_NhanVien SET Name = ?, Email = ?, SĐT = ?, MatKhau = ?, DiaChi = ?, Status = ?, Create_by = ?, Update_by = ?, Create_at = ?, Upadate_at = ? WHERE id_ChucVu = ?";
+        try {
+            con = DBConnect.getConnection();
+            ps = con.prepareStatement(sql);
+             ps.setObject(1, nv.getHoTen());
+            ps.setObject(2, nv.getEmail());
+            ps.setObject(3, nv.getSDT());
+            ps.setObject(4, nv.getMatKhau());
+            ps.setObject(5, nv.getDiaChi());
+            ps.setObject(6, nv.getTrangThai());
+            ps.setObject(7, nv.getNguoiTao());
+            ps.setObject(8, nv.getNguoiSua());
+            ps.setObject(9, nv.getNgayTao());
+            ps.setObject(10, nv.getNgaySua());
+            ps.setObject(11, id_ChucVu);
+            return ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
+    public int delete(int id_ChucVu){
+        sql = "DELETE FROM tbl_NhanVien WHERE id_ChucVu = ?";
+        try {
+            con = DBConnect.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setObject(1, id_ChucVu);
+            return ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }
