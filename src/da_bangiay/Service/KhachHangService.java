@@ -30,7 +30,7 @@ public class KhachHangService {
             return null;
         }
     }
-    
+
     public KhachHang getKH(int id) {
         sql = "SELECT id, Name, SĐTKhachHang, GioiTinh, Email, Create_by, Update_by, Create_at, Update_at FROM tbl_KhachHang WHERE id = ?";
         KhachHang kh = null;
@@ -48,7 +48,7 @@ public class KhachHangService {
             return null;
         }
     }
-    
+
     public int insert(KhachHang kh) {
         sql = "INSERT INTO dbo.tbl_KhachHang(id, Name, SĐTKhachHang, GioiTinh, Email, Create_by, Update_by, Create_at, Update_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -69,7 +69,7 @@ public class KhachHangService {
             return 0;
         }
     }
-    
+
     public int update(KhachHang kh, int id) {
         sql = "UPDATE tbl_KhachHang SET Name = ?, SĐTKhachHang = ?, GioiTinh = ?, Email = ?, Create_by = ?, Update_by = ?, Create_at = ?, Update_at = ? WHERE id = ?";
         try {
