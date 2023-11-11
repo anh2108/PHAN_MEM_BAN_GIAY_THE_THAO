@@ -49,7 +49,7 @@ public class View_GD_Khuyenmai extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), null));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Tạo mã khuyến  mại");
+        jLabel1.setText("Tạo mã voucher");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Hình thức giảm giá");
@@ -62,13 +62,13 @@ public class View_GD_Khuyenmai extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "select", "mã sản phẩm ", "tên sản phẩm"
+                "select", "mã voucher", "giá trị ", "hình thức giảm gía"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
