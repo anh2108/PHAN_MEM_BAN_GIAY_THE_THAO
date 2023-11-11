@@ -32,7 +32,7 @@ public class KhachHangService {
     }
 
     public KhachHang getKH(int id) {
-        sql = "SELECT tbl_KhachHang.id, Name, SĐTKhachHang, GioiTinh, Email, tbl_KhachHang.Create_by, Update_by, tbl_KhachHang.Create_at, Update_at FROM tbl_KhachHang JOIN tbl_DiaChi ON tbl_KhachHang.id = tbl_DiaChi.id_KhachHang WHERE tbl_KhachHang.id = ?";
+        sql = "SELECT id, Name, SĐTKhachHang, GioiTinh, Email, Create_by, Update_by, Create_at, Update_at FROM tbl_KhachHang WHERE id = ?";
         KhachHang kh = null;
         try {
             con = DBConnect.getConnection();

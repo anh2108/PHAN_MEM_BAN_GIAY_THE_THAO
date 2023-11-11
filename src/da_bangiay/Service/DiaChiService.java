@@ -32,7 +32,7 @@ public class DiaChiService {
     }
 
     public DiaChi getDC(int id) {
-        sql = "SELECT tbl_DiaChi.id, id_KhachHang, Duong, ThanhPho, Tinh, QuocGia, Status, tbl_DiaChi.Create_by, LanSuaCuoi, tbl_DiaChi.Create_at, Deleted FROM tbl_DiaChi WHERE tbl_DiaChi.id = ?";
+        sql = "SELECT tbl_DiaChi.id, id_KhachHang, Duong, ThanhPho, Tinh, QuocGia, Status, tbl_DiaChi.Create_by, LanSuaCuoi, tbl_DiaChi.Create_at, Deleted FROM tbl_DiaChi JOIN tbl_KhachHang ON tbl_KhachHang.id = tbl_DiaChi.id_KhachHang WHERE tbl_DiaChi.id = ?";
         DiaChi dc = null;
         try {
             con = DBConnect.getConnection();
