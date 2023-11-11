@@ -1,9 +1,42 @@
 package da_bangiay.View;
 
+import da_bangiay.Model.KhachHang;
+import da_bangiay.Service.DiaChiService;
+import da_bangiay.Service.KhachHangService;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import da_bangiay.Model.DiaChi;
+
 public class FKH extends javax.swing.JFrame {
+
+    private DefaultTableModel dtm = new DefaultTableModel();
+    private KhachHangService khs = new KhachHangService();
+    private KhachHang kh = new KhachHang();
+    private DiaChiService dcs = new DiaChiService();
+    private DiaChi dc = new DiaChi();
 
     public FKH() {
         initComponents();
+        fillTable(khs.getAll());
+    }
+
+    void fillTable(List<KhachHang> listkh) {
+        dtm = (DefaultTableModel) tblQLKH.getModel();
+        dtm.setRowCount(0);
+        String address = dcs.getDC(dc.getId()).getThanhPho();
+        for (KhachHang kh : listkh) {
+            Object[] row = {
+                kh.getId(),
+                kh.getName(),
+                kh.getPhone(),
+                kh.getGender(),
+                kh.getEmail(),
+                address,
+                kh.getCreateAt(),
+                kh.getUpdateAt()
+            };
+            dtm.addRow(row);
+        }
     }
 
     @SuppressWarnings("unchecked")
