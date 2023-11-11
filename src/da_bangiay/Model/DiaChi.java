@@ -120,8 +120,4 @@ public class DiaChi {
     public void setDeleted(int deleted) {
         this.deleted = deleted;
     }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 }
