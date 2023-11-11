@@ -10,8 +10,13 @@ public class DiaChiService {
 
     String sql = null;
     ResultSet rs = null;
+<<<<<<< Updated upstream
     Connection con = null;
     PreparedStatement ps = null;
+=======
+    PreparedStatement ps = null;
+    Connection con = null;
+>>>>>>> Stashed changes
 
     public List<DiaChi> getAll() {
         sql = "SELECT id, id_KhachHang, Duong, ThanhPho, Tinh, QuocGia, Status, Create_by, LanSuaCuoi, Create_at, Deleted FROM tbl_DiaChi";
@@ -40,8 +45,12 @@ public class DiaChiService {
             ps.setObject(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
+<<<<<<< Updated upstream
                 dc = new DiaChi(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getDate(10), rs.getInt(11));
             }
+=======
+dc = new DiaChi(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getDate(10), rs.getInt(11));            }
+>>>>>>> Stashed changes
             return dc;
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,8 +72,13 @@ public class DiaChiService {
             ps.setObject(7, dc.getTrangThai());
             ps.setObject(8, dc.getCreateBy());
             ps.setObject(9, dc.getLanSC());
+<<<<<<< Updated upstream
             ps.setObject(10, dc.getCreateAt());
             ps.setObject(11, dc.getDeleted());
+=======
+            ps.setObject(9, dc.getCreateAt());
+            ps.setObject(9, dc.getDeleted());
+>>>>>>> Stashed changes
             return ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -97,6 +111,10 @@ public class DiaChiService {
         sql = "DELETE FROM tbl_DiaChi WHERE id = ?";
         try {
             con = DBConnect.getConnection();
+<<<<<<< Updated upstream
+=======
+            ps = con.prepareStatement(sql);
+>>>>>>> Stashed changes
             ps.setObject(1, id);
             return ps.executeUpdate();
         } catch (Exception e) {
