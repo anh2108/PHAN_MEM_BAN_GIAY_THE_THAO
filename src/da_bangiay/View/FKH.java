@@ -6,6 +6,9 @@ import da_bangiay.Service.KhachHangService;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import da_bangiay.Model.DiaChi;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FKH extends javax.swing.JFrame {
 
@@ -23,20 +26,33 @@ public class FKH extends javax.swing.JFrame {
     void fillTable(List<KhachHang> listkh) {
         dtm = (DefaultTableModel) tblQLKH.getModel();
         dtm.setRowCount(0);
-        String address = dcs.getDC(dc.getId()).getThanhPho();
         for (KhachHang kh : listkh) {
             Object[] row = {
                 kh.getId(),
                 kh.getName(),
                 kh.getPhone(),
-                kh.getGender(),
+                kh.isGender() ? "Nữ" : "Nam",
                 kh.getEmail(),
-                address,
+                dc.getThanhPho(),
                 kh.getCreateAt(),
                 kh.getUpdateAt()
             };
             dtm.addRow(row);
         }
+    }
+
+    KhachHang readForm() throws ParseException {
+        int id = Integer.parseInt(txtMaKH.getText());
+        String name = txtHoTen.getText();
+        String phone = txtSDT.getText();
+        Boolean gender = cboGender.getSelectedIndex() == 1;
+        String email = txtEmail.getText();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String cB = txtNgayTao.getText();
+        Date createAt = sdf.parse(cB);
+        String uB = txtNgaySua.getText();
+        Date updateAt = sdf.parse(uB);
+        return new KhachHang(id, name, phone, gender, email, createAt, updateAt);
     }
 
     @SuppressWarnings("unchecked")
