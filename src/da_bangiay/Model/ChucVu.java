@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class ChucVu {
     private int id;
-    private String hoTen;
+    private boolean chucVu;
     private int nguoiTao;
     private int nguoiSua;
     private Date ngayTao;
@@ -15,9 +15,9 @@ public class ChucVu {
     public ChucVu() {
     }
 
-    public ChucVu(int id, String hoTen, int nguoiTao, int nguoiSua, Date ngayTao, Date ngaySua) {
+    public ChucVu(int id, boolean chucVu, int nguoiTao, int nguoiSua, Date ngayTao, Date ngaySua) {
         this.id = id;
-        this.hoTen = hoTen;
+        this.chucVu = chucVu;
         this.nguoiTao = nguoiTao;
         this.nguoiSua = nguoiSua;
         this.ngayTao = ngayTao;
@@ -32,12 +32,12 @@ public class ChucVu {
         this.id = id;
     }
 
-    public String getHoTen() {
-        return hoTen;
+    public boolean isChucVu() {
+        return chucVu;
     }
 
-    public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
+    public void setChucVu(boolean chucVu) {
+        this.chucVu = chucVu;
     }
 
     public int getNguoiTao() {
@@ -71,11 +71,13 @@ public class ChucVu {
     public void setNgaySua(Date ngaySua) {
         this.ngaySua = ngaySua;
     }
+
+    
     
     public Object[] toDataRow(){
         return new Object[]{
             this.id,
-            this.hoTen,
+            this.chucVu,
             this.nguoiTao,
             this.nguoiSua,
             this.ngayTao,

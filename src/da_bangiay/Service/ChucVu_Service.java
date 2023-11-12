@@ -13,15 +13,14 @@ public class ChucVu_Service {
     ResultSet rs = null;
     
     public List<ChucVu> getAll(){
-        sql = "SELECT id, Name, Create_by, Update_by, Create_at, Upadate_at FROM tbl_ChucVu";
+        sql = "";
         List<ChucVu> listcv = new ArrayList();
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
-                ChucVu cv = new ChucVu(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getDate(6));
-                listcv.add(cv);
+                
             }
             return listcv;
         } catch (Exception e) {
@@ -31,16 +30,14 @@ public class ChucVu_Service {
     }
     
     public ChucVu getCV(int id){
-        sql = "SELECT id, Name, Create_by, Update_by, Create_at, Upadate_at FROM tbl_ChucVu WHERE id = ?";
+        sql = "";
         ChucVu cv = null;
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             ps.setObject(1, cv.getId());
             rs = ps.executeQuery();
-            while(rs.next()){
-                cv = new ChucVu(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getDate(5), rs.getDate(6));
-            }
+            
             return cv;
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,16 +46,11 @@ public class ChucVu_Service {
     }
     
     public int insert (ChucVu cv){
-        sql = "INSERT INTO tvl_ChucVu (id, Name, Create_by, Update_by, Create_at, Upadate_at) VALUES (?,?,?,?,?,?)";
+        sql = "";
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setObject(1, cv.getId());
-            ps.setObject(2, cv.getHoTen());
-            ps.setObject(3, cv.getNguoiTao());
-            ps.setObject(4, cv.getNguoiSua());
-            ps.setObject(5, cv.getNgayTao());
-            ps.setObject(6, cv.getNgaySua());
+           
             return ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,15 +59,11 @@ public class ChucVu_Service {
     }
     
     public int update (int id, ChucVu cv){
-        sql = "UPDATE tbl_ChucVu SET Name = ?, Create_by = ?, Update_by = ?, Create_at =? , Upadate_at = ? WHERE id = ?";
+        sql = "";
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setObject(1, cv.getHoTen());
-            ps.setObject(2, cv.getNguoiTao());
-            ps.setObject(3, cv.getNguoiSua());
-            ps.setObject(4, cv.getNgayTao());
-            ps.setObject(5, cv.getNgaySua());
+           
             return ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,7 +72,7 @@ public class ChucVu_Service {
     }
     
     public int delete (int id){
-        sql = "DELETE FROM tbl_ChucVu WHERE id = ?";
+        sql = "";
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);

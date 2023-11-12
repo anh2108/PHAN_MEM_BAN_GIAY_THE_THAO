@@ -7,12 +7,14 @@ import java.util.Date;
 public class NhanVien {
     private int id;
     private int id_ChucVu;
+    private String maNV;
     private String hoTen;
+    private String SDT;
     private String email;
-    private long SDT;
     private String matKhau;
+    private String maOTP;
     private String diaChi;
-    private String trangThai;
+    private boolean trangThai;
     private int nguoiTao;
     private int nguoiSua;
     private Date ngayTao;
@@ -21,13 +23,15 @@ public class NhanVien {
     public NhanVien() {
     }
 
-    public NhanVien(int id, int id_ChucVu, String hoTen, String email, long SDT, String matKhau, String diaChi, String trangThai, int nguoiTao, int nguoiSua, Date ngayTao, Date ngaySua) {
+    public NhanVien(int id, int id_ChucVu, String maNV, String hoTen, String SDT, String email, String matKhau, String maOTP, String diaChi, boolean trangThai, int nguoiTao, int nguoiSua, Date ngayTao, Date ngaySua) {
         this.id = id;
         this.id_ChucVu = id_ChucVu;
+        this.maNV = maNV;
         this.hoTen = hoTen;
-        this.email = email;
         this.SDT = SDT;
+        this.email = email;
         this.matKhau = matKhau;
+        this.maOTP = maOTP;
         this.diaChi = diaChi;
         this.trangThai = trangThai;
         this.nguoiTao = nguoiTao;
@@ -52,12 +56,28 @@ public class NhanVien {
         this.id_ChucVu = id_ChucVu;
     }
 
+    public String getMaNV() {
+        return maNV;
+    }
+
+    public void setMaNV(String maNV) {
+        this.maNV = maNV;
+    }
+
     public String getHoTen() {
         return hoTen;
     }
 
     public void setHoTen(String hoTen) {
         this.hoTen = hoTen;
+    }
+
+    public String getSDT() {
+        return SDT;
+    }
+
+    public void setSDT(String SDT) {
+        this.SDT = SDT;
     }
 
     public String getEmail() {
@@ -68,20 +88,20 @@ public class NhanVien {
         this.email = email;
     }
 
-    public long getSDT() {
-        return SDT;
-    }
-
-    public void setSDT(long SDT) {
-        this.SDT = SDT;
-    }
-
     public String getMatKhau() {
         return matKhau;
     }
 
     public void setMatKhau(String matKhau) {
         this.matKhau = matKhau;
+    }
+
+    public String getMaOTP() {
+        return maOTP;
+    }
+
+    public void setMaOTP(String maOTP) {
+        this.maOTP = maOTP;
     }
 
     public String getDiaChi() {
@@ -92,11 +112,11 @@ public class NhanVien {
         this.diaChi = diaChi;
     }
 
-    public String getTrangThai() {
+    public boolean isTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(boolean trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -131,15 +151,19 @@ public class NhanVien {
     public void setNgaySua(Date ngaySua) {
         this.ngaySua = ngaySua;
     }
+
+    
     
     public Object[] toDataRow(){
            return new Object[]{
                this.id,
                this.id_ChucVu,
+               this.maNV,
                this.hoTen,
-               this.email,
-               this.SDT, 
+               this.SDT,
+               this.email, 
                this.matKhau, 
+               this.maOTP,
                this.diaChi, 
                this.trangThai,
                this.nguoiTao,
