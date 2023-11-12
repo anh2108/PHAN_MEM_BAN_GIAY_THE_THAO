@@ -5,32 +5,28 @@ import java.util.Date;
 public class DiaChi {
 
     private int id;
-    private int idKH;
     private String duong;
     private String thanhPho;
     private String tinh;
     private String quocGia;
-    private String trangThai;
     private int createBy;
-    private int lanSC;
+    private int updateBy;
     private Date createAt;
-    private int deleted;
+    private Date updateAt;
 
     public DiaChi() {
     }
 
-    public DiaChi(int id, int idKH, String duong, String thanhPho, String tinh, String quocGia, String trangThai, int createBy, int lanSC, Date createAt, int deleted) {
+    public DiaChi(int id, String duong, String thanhPho, String tinh, String quocGia, int createBy, int updateBy, Date createAt, Date updateAt) {
         this.id = id;
-        this.idKH = idKH;
         this.duong = duong;
         this.thanhPho = thanhPho;
         this.tinh = tinh;
         this.quocGia = quocGia;
-        this.trangThai = trangThai;
         this.createBy = createBy;
-        this.lanSC = lanSC;
+        this.updateBy = updateBy;
         this.createAt = createAt;
-        this.deleted = deleted;
+        this.updateAt = updateAt;
     }
 
     public int getId() {
@@ -39,14 +35,6 @@ public class DiaChi {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdKH() {
-        return idKH;
-    }
-
-    public void setIdKH(int idKH) {
-        this.idKH = idKH;
     }
 
     public String getDuong() {
@@ -59,6 +47,22 @@ public class DiaChi {
 
     public String getThanhPho() {
         return thanhPho;
+    }
+
+    public int getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(int updateBy) {
+        this.updateBy = updateBy;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
     }
 
     public void setThanhPho(String thanhPho) {
@@ -81,14 +85,6 @@ public class DiaChi {
         this.quocGia = quocGia;
     }
 
-    public String getTrangThai() {
-        return trangThai;
-    }
-
-    public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
-    }
-
     public int getCreateBy() {
         return createBy;
     }
@@ -97,27 +93,11 @@ public class DiaChi {
         this.createBy = createBy;
     }
 
-    public int getLanSC() {
-        return lanSC;
-    }
-
-    public void setLanSC(int lanSC) {
-        this.lanSC = lanSC;
-    }
-
     public Date getCreateAt() {
         return createAt;
     }
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
-    }
-
-    public int getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(int deleted) {
-        this.deleted = deleted;
     }
 }
