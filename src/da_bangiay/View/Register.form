@@ -22,13 +22,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Component id="txtUser" max="32767" attributes="0"/>
-                  <Component id="jLabel2" alignment="0" pref="257" max="32767" attributes="0"/>
+                  <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtPass" max="32767" attributes="0"/>
                   <Component id="myButton1" alignment="0" max="32767" attributes="0"/>
                   <Component id="cmdBackLogin" max="32767" attributes="0"/>
@@ -36,7 +36,7 @@
                   <Component id="txtPass1" max="32767" attributes="0"/>
                   <Component id="txtUser1" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -87,7 +87,7 @@
           <Color blue="44" green="44" red="45" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Register"/>
+        <Property name="text" type="java.lang.String" value="Forgot Passworld"/>
       </Properties>
     </Component>
     <Component class="swing.MyPassword" name="txtPass">
