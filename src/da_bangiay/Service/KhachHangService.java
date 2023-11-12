@@ -14,14 +14,15 @@ public class KhachHangService {
     PreparedStatement ps = null;
 
     public List<KhachHang> getAll() {
-        sql = "SELECT id, HoTen, SoDt, GioiTinh, Email, NgayTao, NgaySua FROM KhachHang";
+        sql = "SELECT KhachHang.id as KHID, HoTen, SoDt, GioiTinh, Email, KhachHang.NgayTao, KhachHang.NgaySua, ThanhPho FROM KhachHang JOIN DiaChi ON DiaChi.id = KhachHang.id_DiaChi";
         List<KhachHang> listkh = new ArrayList<>();
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                KhachHang kh = new KhachHang(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getString(5), rs.getDate(6), rs.getDate(7));
+//                System.out.println("id = " + rs.getString("KHID")); làm như này
+                KhachHang kh = new KhachHang(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getString(5), rs.getDate(6), rs.getDate(7), rs.getString(8));
                 listkh.add(kh);
             }
             return listkh;
@@ -32,7 +33,7 @@ public class KhachHangService {
     }
 
     public KhachHang getKH(int id) {
-        sql = "SELECT DiaChi.id, HoTen, GioiTinh, SoDt, Email, KhachHang.NguoiTao, KhachHang.NguoiSua, KhachHang.NgayTao, KhachHang.NgaySua, id_DiaChi, ThanhPho FROM KhachHang JOIN DiaChi ON DiaChi.id = KhachHang.id_DiaChi WHERE id = ?";
+        sql = "SELECT KhachHang.id, HoTen, SoDt, GioiTinh, Email, ThanhPho, KhachHang.NgayTao, KhachHang.NgaySua FROM KhachHang JOIN DiaChi ON DiaChi.id = KhachHang.id_DiaChi WHERE KhachHang.id = ?";
         KhachHang kh = null;
         try {
             con = DBConnect.getConnection(); 
@@ -40,7 +41,7 @@ public class KhachHangService {
             ps.setObject(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                kh = new KhachHang(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getString(5), rs.getDate(6), rs.getDate(7));
+                kh = new KhachHang(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getString(5), rs.getDate(6), rs.getDate(7), rs.getString(8));
             }
             return kh;
         } catch (Exception e) {
