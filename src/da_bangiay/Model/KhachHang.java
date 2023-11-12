@@ -6,18 +6,28 @@ public class KhachHang {
 
     private int id;
     private String name;
-    private long phone;
-    private String gender;
+    private String phone;
+    private boolean gender;
     private String email;
     private int createBy;
     private int updateBy;
     private Date createAt;
     private Date updateAt;
+    private int idDC;
 
     public KhachHang() {
     }
 
-    public KhachHang(int id, String name, long phone, String gender, String email, int createBy, int updateBy, Date createAt, Date updateAt) {
+    public KhachHang(int id, String name, String phone, boolean gender, String email, Date createAt, Date updateAt) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.gender = gender;
+        this.email = email;
+        this.createAt = createAt;
+    }
+
+    public KhachHang(int id, String name, String phone, boolean gender, String email, int createBy, int updateBy, Date createAt, Date updateAt, int idDC) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -27,6 +37,7 @@ public class KhachHang {
         this.updateBy = updateBy;
         this.createAt = createAt;
         this.updateAt = updateAt;
+        this.idDC = idDC;
     }
 
     public int getId() {
@@ -45,20 +56,28 @@ public class KhachHang {
         this.name = name;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getGender() {
+    public boolean isGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
+    }
+
+    public int getIdDC() {
+        return idDC;
+    }
+
+    public void setIdDC(int idDC) {
+        this.idDC = idDC;
     }
 
     public String getEmail() {
