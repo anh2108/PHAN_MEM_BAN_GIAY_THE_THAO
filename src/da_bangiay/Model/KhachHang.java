@@ -14,17 +14,20 @@ public class KhachHang {
     private Date createAt;
     private Date updateAt;
     private int idDC;
+    private String city;
 
     public KhachHang() {
     }
 
-    public KhachHang(int id, String name, String phone, boolean gender, String email, Date createAt, Date updateAt) {
+    public KhachHang(int id, String name, String phone, boolean gender, String email, Date createAt, Date updateAt, String city) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.gender = gender;
         this.email = email;
         this.createAt = createAt;
+        this.updateAt = updateAt;
+        this.city = city;
     }
 
     public KhachHang(int id, String name, String phone, boolean gender, String email, int createBy, int updateBy, Date createAt, Date updateAt, int idDC) {
@@ -119,4 +122,13 @@ public class KhachHang {
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
     }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+    
 }
