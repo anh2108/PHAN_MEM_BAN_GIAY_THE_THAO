@@ -14,14 +14,14 @@ public class KhachHangService {
     PreparedStatement ps = null;
 
     public List<KhachHang> getAll() {
-        sql = "SELECT id, Name, SĐTKhachHang, GioiTinh, Email, Create_by, Update_by, Create_at, Update_at FROM tbl_KhachHang";
+        sql = "SELECT id, HoTen, SoDt, GioiTinh, Email, NgayTao, NgaySua FROM KhachHang";
         List<KhachHang> listkh = new ArrayList<>();
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                KhachHang kh = new KhachHang(rs.getInt(1), rs.getString(2), rs.getLong(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getDate(8), rs.getDate(9));
+                KhachHang kh = new KhachHang(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getString(5), rs.getDate(6), rs.getDate(7));
                 listkh.add(kh);
             }
             return listkh;
@@ -32,15 +32,15 @@ public class KhachHangService {
     }
 
     public KhachHang getKH(int id) {
-        sql = "SELECT id, Name, SĐTKhachHang, GioiTinh, Email, Create_by, Update_by, Create_at, Update_at FROM tbl_KhachHang WHERE id = ?";
+        sql = "SELECT DiaChi.id, HoTen, GioiTinh, SoDt, Email, KhachHang.NguoiTao, KhachHang.NguoiSua, KhachHang.NgayTao, KhachHang.NgaySua, id_DiaChi, ThanhPho FROM KhachHang JOIN DiaChi ON DiaChi.id = KhachHang.id_DiaChi WHERE id = ?";
         KhachHang kh = null;
         try {
-            con = DBConnect.getConnection();
+            con = DBConnect.getConnection(); 
             ps = con.prepareStatement(sql);
             ps.setObject(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                kh = new KhachHang(rs.getInt(1), rs.getString(2), rs.getLong(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getDate(8), rs.getDate(9));
+                kh = new KhachHang(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getString(5), rs.getDate(6), rs.getDate(7));
             }
             return kh;
         } catch (Exception e) {
@@ -50,19 +50,19 @@ public class KhachHangService {
     }
 
     public int insert(KhachHang kh) {
-        sql = "INSERT INTO dbo.tbl_KhachHang(id, Name, SĐTKhachHang, GioiTinh, Email, Create_by, Update_by, Create_at, Update_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO KhachHang(HoTen, GioiTinh, SoDt, Email, NguoiTao, NguoiSua, NgayTao, NgaySua, id_DiaChi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setObject(1, kh.getId());
-            ps.setObject(2, kh.getName());
+            ps.setObject(1, kh.getName());
+            ps.setObject(2, kh.isGender());
             ps.setObject(3, kh.getPhone());
-            ps.setObject(4, kh.getGender());
-            ps.setObject(5, kh.getEmail());
-            ps.setObject(6, kh.getCreateBy());
-            ps.setObject(7, kh.getUpdateBy());
-            ps.setObject(8, kh.getCreateAt());
-            ps.setObject(9, kh.getUpdateAt());
+            ps.setObject(4, kh.getEmail());
+            ps.setObject(5, kh.getCreateBy());
+            ps.setObject(6, kh.getUpdateBy());
+            ps.setObject(7, kh.getCreateAt());
+            ps.setObject(8, kh.getUpdateAt());
+            ps.setObject(9, kh.getIdDC());
             return ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,13 +71,13 @@ public class KhachHangService {
     }
 
     public int update(KhachHang kh, int id) {
-        sql = "UPDATE tbl_KhachHang SET Name = ?, SĐTKhachHang = ?, GioiTinh = ?, Email = ?, Create_by = ?, Update_by = ?, Create_at = ?, Update_at = ? WHERE id = ?";
+        sql = "UPDATE KhachHang SET HoTen = ?, GioiTinh = ?, SoDt = ?, Email = ?, NguoiTao = ?, NguoiSua = ?, NgayTao = ?, NgaySua = ? WHERE id = ?";
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
             ps.setObject(1, kh.getName());
-            ps.setObject(2, kh.getPhone());
-            ps.setObject(3, kh.getGender());
+            ps.setObject(2, kh.isGender());
+            ps.setObject(3, kh.getPhone());
             ps.setObject(4, kh.getEmail());
             ps.setObject(5, kh.getCreateBy());
             ps.setObject(6, kh.getUpdateBy());
@@ -92,7 +92,7 @@ public class KhachHangService {
     }
 
     public int delete(int id) {
-        sql = "DELETE FROM tbl_KhachHang WHERE id = ?";
+        sql = "DELETE FROM KhachHang WHERE id = ?";
         try {
             con = DBConnect.getConnection();
             ps = con.prepareStatement(sql);
