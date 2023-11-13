@@ -1,11 +1,11 @@
 package da_bangiay.View;
 
-import da_bangiay.Model.KhachHang;
-import da_bangiay.Service.DiaChiService;
-import da_bangiay.Service.KhachHangService;
+import duan1_bangiay.Model.KhachHang;
+import duan1_bangiay.Model.DiaChiService;
+import duan1_bangiay.Service.KhachHangService;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import da_bangiay.Model.DiaChi;
+import duan1_bangiay.Model.DiaChi;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
